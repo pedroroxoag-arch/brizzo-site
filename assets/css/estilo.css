@@ -1,0 +1,102 @@
+/* Brizzo — folha de estilo única. Identidade: /workspace/kdp/marca/guia-marca.md (v1, 30/10/2026). */
+/* Fraunces Bold 700 · opsz 144 · SOFT 50 · WONK 0 (instância estática, como pede o guia para títulos) */
+@font-face{font-family:"Fraunces";src:url("../fonts/fraunces-latin.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+/* Nunito variável 400–800 (Regular texto; Bold/ExtraBold menus e botões) */
+@font-face{font-family:"Nunito";src:url("../fonts/nunito-latin.woff2") format("woff2");font-weight:400 800;font-style:normal;font-display:swap}
+
+:root{
+  /* Paleta da marca. A cor "viva" vem das capas dos livros, não da interface. */
+  --creme:#FBF1DE;      /* fundo base, cabeçalho */
+  --grena:#6E2A1A;      /* logótipo, títulos, links, botões — 9,33:1 sobre creme */
+  --tinta:#3A2A20;      /* texto corrido — 12,23:1 sobre creme */
+  --terracota:#C7653B;  /* SÓ acento: separadores e contornos decorativos (3,5:1 — nunca texto) */
+  /* Neutros de apoio (maqueta do site do guia) */
+  --cartao:#FFFDF8;     /* fundo dos cartões */
+  --linha:#E6D6BC;      /* contornos suaves, fundo do menu ao passar */
+  --radio:14px;
+  --ancho:72rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+/* Texto: 20 px telemóvel / 22 px computador (guia: mínimo 18 px) */
+body{margin:0;background:var(--creme);color:var(--tinta);font-family:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-weight:400;font-size:1.25rem;line-height:1.6}
+@media (min-width:48rem){body{font-size:1.375rem}}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:"Fraunces",Georgia,"Times New Roman",serif;color:var(--grena);font-weight:700;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,6vw + 1rem,3.75rem)}
+h2{font-size:clamp(1.9rem,3vw + 1rem,2.75rem)}
+h3{font-size:1.75rem}
+p{margin:0 0 1em;max-width:40em}
+a{color:var(--grena);text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{color:var(--tinta)}
+:focus-visible{outline:4px solid var(--tinta);outline-offset:3px;border-radius:4px}
+.envoltorio{max-width:var(--ancho);margin:0 auto;padding:0 1.25rem}
+.saltar{position:absolute;left:-999px;top:0;background:var(--grena);color:var(--creme);padding:.75rem 1rem;z-index:10}
+.saltar:focus{left:1rem;top:1rem}
+
+/* Cabeçalho: creme; logótipo C claro à esquerda (40 px telemóvel / 56 px computador); menu grená, Nunito Bold.
+   Espaço livre à volta do logótipo ≥ altura do "B" (≈ metade da altura do SVG). */
+.cabecera{background:var(--creme);border-bottom:3px solid var(--terracota)}
+.cabecera .envoltorio{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 2rem;padding-top:1.25rem;padding-bottom:1.25rem}
+.marca{display:inline-block;line-height:0;border-radius:6px}
+.marca img{height:40px;width:auto}
+@media (min-width:48rem){.cabecera .envoltorio{padding-top:1.75rem;padding-bottom:1.75rem}.marca img{height:56px}}
+.menu ul{list-style:none;margin:0 -.75rem;padding:0;display:flex;flex-wrap:wrap;gap:0 .25rem}
+.menu a{display:inline-flex;align-items:center;min-height:48px;padding:.25rem .75rem;font-weight:700;color:var(--grena);text-decoration:none;border-radius:999px}
+.menu a:hover{background:var(--linha);color:var(--grena)}
+.menu a[aria-current="page"]{text-decoration:underline;text-decoration-color:var(--terracota);text-decoration-thickness:3px;text-underline-offset:6px}
+
+/* Acento terracota antes dos títulos de secção (substitui a antiga cenefa de azulejos, que usava cores do livro 01) */
+.acento::before{content:"";display:block;width:4rem;height:6px;border-radius:3px;background:var(--terracota);margin-bottom:1rem}
+
+/* Portada */
+.portada{padding:3rem 0}
+.portada p{font-size:1.375rem}
+@media (min-width:48rem){.portada{padding:5rem 0 4.5rem}.portada p{font-size:1.5rem}}
+
+/* Botões: ≥ 48 px de altura, texto grande, Nunito ExtraBold */
+.boton{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:.75rem 1.75rem;border-radius:999px;font-weight:800;font-size:1.25rem;text-decoration:none;border:3px solid var(--grena);background:var(--grena);color:var(--creme);text-align:center}
+.boton:hover{background:var(--tinta);border-color:var(--tinta);color:var(--creme)}
+.boton--pendiente,.boton--pendiente:hover{background:var(--creme);color:var(--grena);border:3px dashed var(--terracota);cursor:default}
+
+/* Livros */
+.libros{padding:3rem 0 4rem;border-top:1px solid var(--linha)}
+.libros__entradilla{font-size:1.375rem}
+.rejilla{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:2rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,18rem),1fr))}
+.libro{background:var(--cartao);border:2px solid var(--linha);border-radius:var(--radio);padding:1.25rem;display:flex;flex-direction:column;gap:.75rem}
+.libro img{border-radius:6px;border:1px solid var(--linha);aspect-ratio:2550/3300;width:100%}
+.libro h3{margin:.5rem 0 0}
+.libro__etiqueta{color:var(--grena);font-weight:800;margin:0}
+.libro__frase{margin:0}
+.libro .boton{margin-top:auto}
+@media (min-width:48rem){
+  /* Em ecrãs largos o cartão fica na horizontal: capa à esquerda, texto à direita */
+  .rejilla{grid-template-columns:repeat(auto-fill,minmax(36rem,1fr))}
+  .libro{display:grid;grid-template-columns:15rem 1fr;grid-template-rows:auto auto auto 1fr;column-gap:1.75rem;row-gap:.75rem;align-items:start;padding:1.5rem}
+  .libro picture{grid-row:1 / span 4}
+  .libro h3{margin-top:0}
+  .libro .boton{align-self:end;justify-self:start}
+}
+
+/* Páginas de texto */
+.pagina{padding:3rem 0 4rem}
+.pagina p,.pagina li{max-width:40em}
+.pagina ul{padding-left:1.25em}
+.pagina li{margin-bottom:.5em}
+
+/* Marcas de texto provisório (temporárias, fora da paleta de propósito, para se verem bem) */
+.provisorio{background:#FFF0B3;color:var(--tinta);border:2px dashed var(--terracota);padding:.1em .4em;border-radius:6px;font-weight:700}
+.aviso-borrador{background:#FFF0B3;border:3px dashed var(--terracota);border-radius:var(--radio);padding:1rem 1.25rem;margin:0 0 2rem;font-weight:700}
+
+/* Rodapé: fundo grená, logótipo C escuro, texto creme (9,33:1) */
+.pie{background:var(--grena);color:var(--creme);padding:2.5rem 0 3rem}
+.pie a{color:var(--creme)}
+.pie a:hover{color:var(--creme);text-decoration-thickness:4px}
+.pie :focus-visible{outline-color:var(--creme)}
+.pie .marca{margin-bottom:1.5rem}
+.pie .marca img{height:48px;width:auto}
+.pie ul{list-style:none;margin:0 0 1.5rem;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1rem}
+.pie li a{display:inline-flex;align-items:center;min-height:48px;font-weight:700}
+.pie p{margin:.25rem 0}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}

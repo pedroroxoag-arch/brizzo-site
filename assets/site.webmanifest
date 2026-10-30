@@ -1,0 +1,12 @@
+{
+  "name": "Brizzo",
+  "short_name": "Brizzo",
+  "icons": [
+    {"src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
+    {"src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ],
+  "background_color": "#FBF1DE",
+  "theme_color": "#FBF1DE",
+  "display": "browser",
+  "start_url": "/"
+}
